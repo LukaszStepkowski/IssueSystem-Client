@@ -1,12 +1,14 @@
 package sda.issuesystem.client.menu;
 
+import sda.issuesystem.menu.params.MainMenuParams;
+
 public class DefaultMenu extends AbstractMenu {
 
     public DefaultMenu(MainMenuParams[] params) {
         super(params);
     }
 
-    private static DefaultMenu INSTANCE = new DefaultMenu(MainMenuParams.values());
+    private static final DefaultMenu INSTANCE = new DefaultMenu(MainMenuParams.values());
 
     public static DefaultMenu getInstance(){
         return INSTANCE;

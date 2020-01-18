@@ -1,6 +1,8 @@
-package sda.issuesystem.client.menu;
+package sda.issuesystem.menu.params;
 
-public enum MainMenuParams {
+import sda.issuesystem.menu.interfaces.MenuParamInterface;
+
+public enum MainMenuParams implements MenuParamInterface {
     CONFIGURATION(1, "Configuration"),
     USER_MANAGEMENT(2, "User Management"),
     ISSUE_MANAGEMENT(3, "Issue Management"),

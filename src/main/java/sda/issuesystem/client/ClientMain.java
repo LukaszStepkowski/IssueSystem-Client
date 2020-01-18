@@ -1,7 +1,7 @@
 package sda.issuesystem.client;
 
 import sda.issuesystem.client.menu.DefaultMenu;
-import sda.issuesystem.client.menu.MainMenuParams;
+import sda.issuesystem.menu.params.MainMenuParams;
 
 import java.util.Arrays;
 import java.util.Scanner;

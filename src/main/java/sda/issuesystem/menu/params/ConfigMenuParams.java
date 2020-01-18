@@ -1,6 +1,8 @@
-package sda.issuesystem.client.menu;
+package sda.issuesystem.menu.params;
 
-public enum ConfigMenuParams {
+import sda.issuesystem.menu.interfaces.MenuParamInterface;
+
+public enum ConfigMenuParams implements MenuParamInterface {
     SET_ADDRESS(1, "Set Address"),
     SET_PORT(2, "Set Port"),
     SHOW_CONFIGURATION(3, "Show Configuration"),
