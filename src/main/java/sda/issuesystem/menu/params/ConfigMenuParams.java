@@ -1,5 +1,6 @@
 package sda.issuesystem.menu.params;
 
+import sda.issuesystem.client.menu.command.CommandInterface;
 import sda.issuesystem.menu.interfaces.MenuParamInterface;
 
 public enum ConfigMenuParams implements MenuParamInterface {
@@ -24,4 +25,11 @@ public enum ConfigMenuParams implements MenuParamInterface {
     public String getCommandDescription() {
         return commandDescription;
     }
+
+    @Override
+    public CommandInterface userChoice() {
+        return null;
+    }
+
+
 }
