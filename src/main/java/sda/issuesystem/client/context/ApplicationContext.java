@@ -1,6 +1,7 @@
 package sda.issuesystem.client.context;
 
 import sda.issuesystem.client.menu.AbstractMenu;
+import sda.issuesystem.menu.interfaces.MenuParamInterface;
 
 public class ApplicationContext {
 
@@ -14,11 +15,11 @@ public class ApplicationContext {
         return actualMenu;
     }
 
-    public void setMenu(){
-
+    public void setMenu(AbstractMenu actualMenu){
+        this.actualMenu = actualMenu;
     }
 
-    public <T> void setMenuParams(){
-
+    public <T> void setMenuParams(MenuParamInterface[] params){
+        actualMenu.setParams(params);
     }
 }
