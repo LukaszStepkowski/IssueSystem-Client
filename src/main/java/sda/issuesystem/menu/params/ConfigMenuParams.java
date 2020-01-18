@@ -4,18 +4,20 @@ import sda.issuesystem.client.menu.command.CommandInterface;
 import sda.issuesystem.menu.interfaces.MenuParamInterface;
 
 public enum ConfigMenuParams implements MenuParamInterface {
-    SET_ADDRESS(1, "Set Address"),
-    SET_PORT(2, "Set Port"),
-    SHOW_CONFIGURATION(3, "Show Configuration"),
-    RESTORE_DEFAULT(4, "Restore Default")
+    SET_ADDRESS(1, "Set Address", p -> System.out.println(p)),
+    SET_PORT(2, "Set Port", p -> System.out.println(p)),
+    SHOW_CONFIGURATION(3, "Show Configuration", p -> System.out.println(p)),
+    RESTORE_DEFAULT(4, "Restore Default", p -> System.out.println(p))
     ;
 
     int commandNumber;
     String commandDescription;
+    CommandInterface execute;
 
-    ConfigMenuParams(int commandNumber, String commandDescription) {
+    ConfigMenuParams(int commandNumber, String commandDescription, CommandInterface execute) {
         this.commandNumber = commandNumber;
         this.commandDescription = commandDescription;
+        this.execute = execute;
     }
 
     public int getCommandNumber() {
@@ -28,7 +30,7 @@ public enum ConfigMenuParams implements MenuParamInterface {
 
     @Override
     public CommandInterface userChoice() {
-        return null;
+        return execute;
     }
 
 

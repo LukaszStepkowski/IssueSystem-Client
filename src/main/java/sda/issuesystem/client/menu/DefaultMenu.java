@@ -17,8 +17,8 @@ public class DefaultMenu extends AbstractMenu<MenuParamInterface> {
 
     @Override
     public void printMenu() {
-        for (int i = 0; i < MainMenuParams.values().length; i++){
-            System.out.println(MainMenuParams.values()[i].getCommandNumber() + ". " + MainMenuParams.values()[i].getCommandDescription());
+        for (int i = 0; i < params.length; i++){
+            System.out.println(params[i].getCommandNumber() + ". " + params[i].getCommandDescription());
         }
     }
 }

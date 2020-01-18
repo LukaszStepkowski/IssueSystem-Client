@@ -1,22 +1,25 @@
 package sda.issuesystem.menu.params;
 
+import sda.issuesystem.client.menu.DefaultMenu;
 import sda.issuesystem.client.menu.command.CommandInterface;
 import sda.issuesystem.menu.interfaces.MenuParamInterface;
 
 public enum MainMenuParams implements MenuParamInterface {
-    CONFIGURATION(1, "Configuration"),
-    USER_MANAGEMENT(2, "User Management"),
-    ISSUE_MANAGEMENT(3, "Issue Management"),
-    CONNECTION_MANAGEMENT(4, "Conection Mangement"),
-    QUIT(0, "Quit")
+    CONFIGURATION(1, "Configuration", p -> DefaultMenu.getInstance().setParams(ConfigMenuParams.values())),
+    USER_MANAGEMENT(2, "User Management", p -> System.out.println(p)),
+    ISSUE_MANAGEMENT(3, "Issue Management", p -> System.out.println(p)),
+    CONNECTION_MANAGEMENT(4, "Connection Management", p -> System.out.println(p)),
+    QUIT(0, "Quit", p -> System.out.println(p))
     ;
 
     int commandNumber;
     String commandDescription;
+    CommandInterface execute;
 
-    MainMenuParams(int commandNumber, String commandDescription) {
+    MainMenuParams(int commandNumber, String commandDescription, CommandInterface execute) {
         this.commandNumber = commandNumber;
         this.commandDescription = commandDescription;
+        this.execute = execute;
     }
 
     public int getCommandNumber() {
@@ -29,6 +32,6 @@ public enum MainMenuParams implements MenuParamInterface {
 
     @Override
     public CommandInterface userChoice() {
-        return null;
+        return execute;
     }
 }

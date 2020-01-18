@@ -10,15 +10,16 @@ public class ClientMain {
 
     public static void main(String[] args) {
 
-        DefaultMenu.getInstance().printMenu();
+
 
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
+            DefaultMenu.getInstance().printMenu();
             int choice = scanner.nextInt();
             Arrays.stream(MainMenuParams.values())
                     .filter(p -> p.getCommandNumber() == choice)
-                    .forEach(p -> System.out.println(p.getCommandDescription()));
+                    .forEach(p -> p.userChoice().execute(null));
         }
     }
 }

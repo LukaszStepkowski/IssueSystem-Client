@@ -1,6 +1,8 @@
 package sda.issuesystem.client.menu;
 
-public abstract class AbstractMenu<T> {
+import sda.issuesystem.menu.interfaces.MenuParamInterface;
+
+public abstract class AbstractMenu<T extends MenuParamInterface> {
 
     T[] params;
 
