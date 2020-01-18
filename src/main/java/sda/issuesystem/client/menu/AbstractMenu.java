@@ -2,13 +2,13 @@ package sda.issuesystem.client.menu;
 
 public abstract class AbstractMenu {
 
-    MainMenuParams params;
+    MainMenuParams[] params;
 
-    public AbstractMenu(MainMenuParams params) {
+    public AbstractMenu(MainMenuParams[] params) {
         this.params = params;
     }
 
-    public void setParams(MainMenuParams params) {
+    public void setParams(MainMenuParams[] params) {
         this.params = params;
     }
 
