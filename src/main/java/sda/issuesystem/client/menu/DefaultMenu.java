@@ -1,10 +1,11 @@
 package sda.issuesystem.client.menu;
 
+import sda.issuesystem.menu.interfaces.MenuParamInterface;
 import sda.issuesystem.menu.params.MainMenuParams;
 
-public class DefaultMenu extends AbstractMenu {
+public class DefaultMenu extends AbstractMenu<MenuParamInterface> {
 
-    public DefaultMenu(MainMenuParams[] params) {
+    public DefaultMenu(MenuParamInterface[] params) {
         super(params);
     }
 
