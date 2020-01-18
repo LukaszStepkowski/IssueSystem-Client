@@ -1,5 +1,6 @@
 package sda.issuesystem.client;
 
+import sda.issuesystem.client.menu.DefaultMenu;
 import sda.issuesystem.client.menu.MainMenuParams;
 
 import java.util.Arrays;
@@ -9,9 +10,7 @@ public class ClientMain {
 
     public static void main(String[] args) {
 
-        for (int i = 0; i < MainMenuParams.values().length; i++) {
-            System.out.println(MainMenuParams.values()[i].getCommandNumber() + ". " + MainMenuParams.values()[i].getCommandDescription());
-        }
+        DefaultMenu.getInstance().printMenu();
 
         Scanner scanner = new Scanner(System.in);
 
