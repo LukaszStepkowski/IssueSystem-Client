@@ -2,6 +2,7 @@ package sda.issuesystem.client.command;
 
 import sda.issuesystem.client.config.ConnectionConfiguration;
 import sda.issuesystem.client.menu.command.CommandInterface;
+import sda.issuesystem.dto.User;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -16,13 +17,16 @@ public class OpenConnectionCommand implements CommandInterface<Void> {
         return INSTANCE;
     }
 
+    User user = new User.UserBuilder("1", "John", "Doe", "john.doe", "password")
+            .setAddress("Unknown Street 1").setAge(25).setCity("Uranus").build();
+
     @Override
     public void execute(Void onObject) {
         try {
         Socket channel = new Socket(ConnectionConfiguration.getAddress(), ConnectionConfiguration.getPort());
             ObjectOutputStream out = new ObjectOutputStream(channel.getOutputStream());
             ObjectInputStream in = new ObjectInputStream(channel.getInputStream());
-            out.writeObject("Message sent test");
+            out.writeObject(user.toString());
             out.flush();
             System.out.println(in.readObject());
         } catch (IOException | ClassNotFoundException e) {
