@@ -15,7 +15,7 @@ public class ApplicationContext {
         actualMenu = newMenu;
     }
 
-    public static  <T> void setMenuParams(MenuParamInterface[] params){
+    public static  <T extends MenuParamInterface> void setMenuParams(T[] params){
         actualMenu.setParams(params);
     }
 }
