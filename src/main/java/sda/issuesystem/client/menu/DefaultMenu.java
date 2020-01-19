@@ -1,6 +1,6 @@
 package sda.issuesystem.client.menu;
 
-import sda.issuesystem.client.command.ConsoleJustClear;
+import sda.issuesystem.client.command.ConsoleClearWithWait;
 import sda.issuesystem.menu.interfaces.MenuParamInterface;
 import sda.issuesystem.menu.params.MainMenuParams;
 
@@ -23,6 +23,7 @@ public class DefaultMenu extends AbstractMenu<MenuParamInterface> {
 
     @Override
     public void printMenu() {
+        ConsoleClearWithWait.getInstance().execute(null);
         System.out.println("Pick an option:");
         for (int i = 0; i < params.length; i++){
             System.out.println(params[i].getCommandNumber() + ". " + params[i].getCommandDescription());
@@ -35,6 +36,5 @@ public class DefaultMenu extends AbstractMenu<MenuParamInterface> {
 
         choice.userChoice().execute(null);
 
-        ConsoleJustClear.getInstance().execute(null);
     }
 }

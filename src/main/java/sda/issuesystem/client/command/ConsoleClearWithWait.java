@@ -19,7 +19,7 @@ public class ConsoleClearWithWait implements CommandInterface<Void> {
     public void execute(Void onObject) {
         System.out.println("Press Enter to continue...");
 
-        scanner.next();
+        scanner.nextLine();
 
         try {
             new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
