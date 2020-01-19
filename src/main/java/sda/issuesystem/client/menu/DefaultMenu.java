@@ -1,5 +1,6 @@
 package sda.issuesystem.client.menu;
 
+import sda.issuesystem.client.command.ConsoleJustClear;
 import sda.issuesystem.menu.interfaces.MenuParamInterface;
 import sda.issuesystem.menu.params.MainMenuParams;
 
@@ -30,5 +31,7 @@ public class DefaultMenu extends AbstractMenu<MenuParamInterface> {
         Arrays.stream(params)
                 .filter(p -> p.getCommandNumber() == choice)
                 .forEach(p -> p.userChoice().execute(null));
+
+        ConsoleJustClear.getInstance().execute(null);
     }
 }
