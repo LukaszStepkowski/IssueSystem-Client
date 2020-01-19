@@ -10,7 +10,7 @@ public enum MainMenuParams implements MenuParamInterface {
     USER_MANAGEMENT(2, "User Management", p -> System.out.println(p)),
     ISSUE_MANAGEMENT(3, "Issue Management", p -> System.out.println(p)),
     CONNECTION_MANAGEMENT(4, "Connection Management", p -> System.out.println(p)),
-    QUIT(0, "Quit", p -> System.out.println(p))
+    QUIT(0, "Quit", p -> System.exit(0))
     ;
 
     int commandNumber;
