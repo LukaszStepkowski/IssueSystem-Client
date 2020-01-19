@@ -26,7 +26,7 @@ public class OpenConnectionCommand implements CommandInterface<Void> {
         Socket channel = new Socket(ConnectionConfiguration.getAddress(), ConnectionConfiguration.getPort());
             ObjectOutputStream out = new ObjectOutputStream(channel.getOutputStream());
             ObjectInputStream in = new ObjectInputStream(channel.getInputStream());
-            out.writeObject(user.toString());
+            out.writeObject(user);
             out.flush();
             System.out.println(in.readObject());
         } catch (IOException | ClassNotFoundException e) {
