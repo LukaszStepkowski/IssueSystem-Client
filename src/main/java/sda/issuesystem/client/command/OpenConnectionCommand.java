@@ -10,6 +10,12 @@ import java.net.Socket;
 
 public class OpenConnectionCommand implements CommandInterface<Void> {
 
+    private static final OpenConnectionCommand INSTANCE = new OpenConnectionCommand();
+
+    public static OpenConnectionCommand getInstance() {
+        return INSTANCE;
+    }
+
     @Override
     public void execute(Void onObject) {
         try {
