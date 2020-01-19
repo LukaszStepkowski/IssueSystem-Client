@@ -1,11 +1,12 @@
 package sda.issuesystem.menu.params;
 
+import sda.issuesystem.client.context.ApplicationContext;
 import sda.issuesystem.client.menu.DefaultMenu;
 import sda.issuesystem.client.menu.command.CommandInterface;
 import sda.issuesystem.menu.interfaces.MenuParamInterface;
 
 public enum MainMenuParams implements MenuParamInterface {
-    CONFIGURATION(1, "Configuration", p -> DefaultMenu.getInstance().setParams(ConfigMenuParams.values())),
+    CONFIGURATION(1, "Configuration", p -> ApplicationContext.setMenuParams(ConfigMenuParams.values())),
     USER_MANAGEMENT(2, "User Management", p -> System.out.println(p)),
     ISSUE_MANAGEMENT(3, "Issue Management", p -> System.out.println(p)),
     CONNECTION_MANAGEMENT(4, "Connection Management", p -> System.out.println(p)),

@@ -5,21 +5,17 @@ import sda.issuesystem.menu.interfaces.MenuParamInterface;
 
 public class ApplicationContext {
 
-    private AbstractMenu actualMenu;
+    public static AbstractMenu actualMenu;
 
-    public ApplicationContext(AbstractMenu actualMenu) {
-        this.actualMenu = actualMenu;
-    }
-
-    public AbstractMenu getMenu(){
+    public static AbstractMenu getMenu(){
         return actualMenu;
     }
 
-    public void setMenu(AbstractMenu actualMenu){
-        this.actualMenu = actualMenu;
+    public static void setMenu(AbstractMenu newMenu){
+        actualMenu = newMenu;
     }
 
-    public <T> void setMenuParams(MenuParamInterface[] params){
+    public static  <T> void setMenuParams(MenuParamInterface[] params){
         actualMenu.setParams(params);
     }
 }
