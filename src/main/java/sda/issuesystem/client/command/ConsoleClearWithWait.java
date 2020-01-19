@@ -5,9 +5,9 @@ import sda.issuesystem.client.menu.command.CommandInterface;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class ConsoleClearWithWait<T> implements CommandInterface<T> {
+public class ConsoleClearWithWait implements CommandInterface<Void> {
 
-    Scanner scanner = new Scanner(System.in);
+    private static Scanner scanner = new Scanner(System.in);
     
     private static final ConsoleClearWithWait INSTANCE = new ConsoleClearWithWait();
 
@@ -16,7 +16,7 @@ public class ConsoleClearWithWait<T> implements CommandInterface<T> {
     }
 
     @Override
-    public void execute(T onObject) {
+    public void execute(Void onObject) {
         System.out.println("Press Enter to continue...");
 
         scanner.next();

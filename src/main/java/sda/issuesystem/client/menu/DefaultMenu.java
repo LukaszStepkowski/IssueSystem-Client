@@ -27,10 +27,13 @@ public class DefaultMenu extends AbstractMenu<MenuParamInterface> {
         for (int i = 0; i < params.length; i++){
             System.out.println(params[i].getCommandNumber() + ". " + params[i].getCommandDescription());
         }
-        int choice = scanner.nextInt();
-        Arrays.stream(params)
-                .filter(p -> p.getCommandNumber() == choice)
-                .forEach(p -> p.userChoice().execute(null));
+        int input = scanner.nextInt();
+        MenuParamInterface choice = Arrays.stream(params)
+                .filter(p -> p.getCommandNumber() == input)
+                .findFirst()
+                .get();
+
+        choice.userChoice().execute(null);
 
         ConsoleJustClear.getInstance().execute(null);
     }
