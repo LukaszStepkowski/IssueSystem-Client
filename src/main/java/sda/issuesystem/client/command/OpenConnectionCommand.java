@@ -17,8 +17,15 @@ public class OpenConnectionCommand implements CommandInterface<Void> {
         return INSTANCE;
     }
 
-    User user = new User.UserBuilder("1", "John", "Doe", "john.doe", "password")
-            .setAddress("Unknown Street 1").setAge(25).setCity("Uranus").build();
+    User user = new User.UserBuilder()
+            .setID("1")
+            .setName("John")
+            .setSurname("Doe")
+            .setLogin("john.doe")
+            .setAge(25)
+            .setPassword("password")
+            .setAddress("Unknown Street")
+            .setCity("Uranus").build();
 
     @Override
     public void execute(Void onObject) {
