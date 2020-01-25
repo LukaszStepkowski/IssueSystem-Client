@@ -29,12 +29,6 @@ public class OpenConnectionCommand implements CommandInterface<Void> {
             SessionContext.setIn(in);
             SessionContext.setSessionOpen(true);
 
-            ConsoleJustClear.getInstance().execute(null);
-            System.out.println("Enter user name:");
-            CreateUserCommand.getInstance().execute(null);
-//            out.writeObject(user);
-//            out.flush();
-//            System.out.println(in.readObject());
         } catch (IOException e) {
             e.printStackTrace();
         }

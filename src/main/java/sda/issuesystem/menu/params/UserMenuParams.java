@@ -1,12 +1,18 @@
 package sda.issuesystem.menu.params;
 
+import sda.issuesystem.client.command.ConsoleJustClear;
+import sda.issuesystem.client.command.CreateUserCommand;
 import sda.issuesystem.client.context.ApplicationContext;
 import sda.issuesystem.client.menu.command.CommandInterface;
 import sda.issuesystem.menu.interfaces.MenuParamInterface;
 
 public enum UserMenuParams implements MenuParamInterface {
-    PREVIOUS_MENU(0, "Previous Menu", p -> ApplicationContext.setMenuParams(MainMenuParams.values()))
-    ;
+    ADD_USER(1, "Add User", p -> {
+        ConsoleJustClear.getInstance().execute(null);
+        System.out.println("Enter user name:");
+        CreateUserCommand.getInstance().execute(null);
+    }),
+    PREVIOUS_MENU(0, "Previous Menu", p -> ApplicationContext.setMenuParams(MainMenuParams.values()));
 
     int commandNumber;
     String commandDescription;
