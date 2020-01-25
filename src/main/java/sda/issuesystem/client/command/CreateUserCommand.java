@@ -2,6 +2,7 @@ package sda.issuesystem.client.command;
 
 import sda.issuesystem.client.context.SessionContext;
 import sda.issuesystem.client.menu.command.CommandInterface;
+import sda.issuesystem.dto.DataTransferObject;
 import sda.issuesystem.dto.User;
 
 import java.io.IOException;
@@ -20,6 +21,7 @@ public class CreateUserCommand implements CommandInterface<Void> {
 
     @Override
     public void execute(Void onObject) {
+
         User user = new User.UserBuilder()
                 .setName(scanner.nextLine())
                 .setSurname(scanner.nextLine())
@@ -30,8 +32,10 @@ public class CreateUserCommand implements CommandInterface<Void> {
                 .setPassword(scanner.nextLine())
                 .build();
 
+        DataTransferObject<User> dto = new DataTransferObject<>(DataTransferObject.ADU, user);
+
         try {
-            SessionContext.getOut().writeObject(user);
+            SessionContext.getOut().writeObject(dto.getObject());
         } catch (IOException e) {
             e.printStackTrace();
         }
