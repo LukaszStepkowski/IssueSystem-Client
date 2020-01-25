@@ -1,6 +1,7 @@
 package sda.issuesystem.client.command;
 
 import sda.issuesystem.client.config.ConnectionConfiguration;
+import sda.issuesystem.client.context.SessionContext;
 import sda.issuesystem.client.menu.command.CommandInterface;
 import sda.issuesystem.dto.User;
 
@@ -30,13 +31,16 @@ public class OpenConnectionCommand implements CommandInterface<Void> {
     @Override
     public void execute(Void onObject) {
         try {
-        Socket channel = new Socket(ConnectionConfiguration.getAddress(), ConnectionConfiguration.getPort());
-            ObjectOutputStream out = new ObjectOutputStream(channel.getOutputStream());
-            ObjectInputStream in = new ObjectInputStream(channel.getInputStream());
-            out.writeObject(user);
-            out.flush();
-            System.out.println(in.readObject());
-        } catch (IOException | ClassNotFoundException e) {
+//        Socket channel = new Socket(ConnectionConfiguration.getAddress(), ConnectionConfiguration.getPort());
+            SessionContext.setChannel(new Socket(ConnectionConfiguration.getAddress(), ConnectionConfiguration.getPort()));
+//            ObjectOutputStream out = new ObjectOutputStream(channel.getOutputStream());
+            SessionContext.setOut(new ObjectOutputStream(SessionContext.getChannel().getOutputStream()));
+//            ObjectInputStream in = new ObjectInputStream(channel.getInputStream());
+            SessionContext.setIn(new ObjectInputStream(SessionContext.getChannel().getInputStream()));
+//            out.writeObject(user);
+//            out.flush();
+//            System.out.println(in.readObject());
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
