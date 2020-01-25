@@ -20,12 +20,15 @@ public class OpenConnectionCommand implements CommandInterface<Void> {
     @Override
     public void execute(Void onObject) {
         try {
-//        Socket channel = new Socket(ConnectionConfiguration.getAddress(), ConnectionConfiguration.getPort());
-            SessionContext.setChannel(new Socket(ConnectionConfiguration.getAddress(), ConnectionConfiguration.getPort()));
-//            ObjectOutputStream out = new ObjectOutputStream(channel.getOutputStream());
-            SessionContext.setOut(new ObjectOutputStream(SessionContext.getChannel().getOutputStream()));
-//            ObjectInputStream in = new ObjectInputStream(channel.getInputStream());
-            SessionContext.setIn(new ObjectInputStream(SessionContext.getChannel().getInputStream()));
+        Socket channel = new Socket(ConnectionConfiguration.getAddress(), ConnectionConfiguration.getPort());
+            ObjectOutputStream out = new ObjectOutputStream(channel.getOutputStream());
+            ObjectInputStream in = new ObjectInputStream(channel.getInputStream());
+
+            SessionContext.setChannel(channel);
+            SessionContext.setOut(out);
+            SessionContext.setIn(in);
+            SessionContext.setSessionOpen(true);
+
             ConsoleJustClear.getInstance().execute(null);
             System.out.println("Enter user name:");
             CreateUserCommand.getInstance().execute(null);

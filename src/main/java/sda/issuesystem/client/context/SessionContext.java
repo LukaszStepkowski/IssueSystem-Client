@@ -10,6 +10,16 @@ public class SessionContext {
     private static ObjectOutputStream out;
     private static ObjectInputStream in;
 
+    private static boolean isSessionOpen;
+
+    public static boolean isIsSessionOpen() {
+        return isSessionOpen;
+    }
+
+    public static void setSessionOpen(boolean isSessionOpen) {
+        SessionContext.isSessionOpen = isSessionOpen;
+    }
+
     public static Socket getChannel() {
         return channel;
     }
