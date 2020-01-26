@@ -35,7 +35,7 @@ public class CreateUserCommand implements CommandInterface<Void> {
         DataTransferObject<User> dto = new DataTransferObject<>(DataTransferObject.ADU, user);
 
         try {
-            SessionContext.getOut().writeObject(dto.getObject());
+            SessionContext.getOut().writeObject(dto);
         } catch (IOException e) {
             e.printStackTrace();
         }
