@@ -1,9 +1,6 @@
 package sda.issuesystem.menu.params;
 
-import sda.issuesystem.client.command.ConsoleJustClear;
-import sda.issuesystem.client.command.CreateUserCommand;
-import sda.issuesystem.client.command.FindUserCommand;
-import sda.issuesystem.client.command.PrintUsersCommand;
+import sda.issuesystem.client.command.*;
 import sda.issuesystem.client.context.ApplicationContext;
 import sda.issuesystem.client.context.SessionContext;
 import sda.issuesystem.client.menu.command.CommandInterface;
@@ -58,6 +55,24 @@ public enum UserMenuParams implements MenuParamInterface {
             e.printStackTrace();
         }
         System.out.println(dto.getObject());
+    }),
+    DELETE_USER (4, "Delete User", p -> {
+        ConsoleJustClear.getInstance().execute(null);
+        System.out.println("Enter User ID:");
+        DeleteUserCommand.getInstance().execute(null);
+        DataTransferObject dto = null;
+        try {
+            dto = (DataTransferObject) SessionContext.getIn().readObject();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        if ((Integer)dto.getObject() < 0) {
+            System.out.println("User Deleted");
+        } else {
+            System.out.println("User not Deleted");
+        }
     }),
     PREVIOUS_MENU(0, "Previous Menu", p -> ApplicationContext.setMenuParams(MainMenuParams.values()));
 
